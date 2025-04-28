@@ -32,6 +32,11 @@ jobs:
     - name: Checkout Our Code into go
       uses: actions/checkout@v4
 
+    - name: Install golang-migrate
+      run:  |
+        curl -L https://github.com/golang-migrate/migrate/releases/download/v4.18.3/migrate.linux-amd64.tar.gz| tar xvz
+        sudo mv migrate.linux-amd64 /usr/bin
+
     - name: Run Migrate Database Schema
       run:  make migrateup
 
