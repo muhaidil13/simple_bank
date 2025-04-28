@@ -6,7 +6,7 @@ migrateup:
 migratedown: 
 	migrate -path db/migrations -database "postgresql://root:root@localhost:5432/simplebank?sslmode=disable" -verbose down
 postgres:
-	docker run --name postgres -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -d postgres
+	docker run --name postgres -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -d postgres:17
 removecontainer:
 	docker stop postgres
 	docker rm postgres
